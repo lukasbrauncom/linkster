@@ -24,6 +24,10 @@ input:focus {
 	color: #333;
 }
 
+main {
+	margin-left: 224px; /* width of nav and padding */
+}
+
 header {
     position: fixed;
     left: 0;
