@@ -1,32 +1,41 @@
 <!DOCTYPE HTML>
 <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Linkster</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-	<meta charset="utf-8">
-	<title>Linkster</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/normalize.min.css">
+		<link rel="stylesheet" href="./css/main.min.css">
+	</head>
 
-	<link rel="stylesheet" href="./css/normalize.min.css">
-	<link rel="stylesheet" href="./css/main.min.css">
-</head>
-
-<body>
-	<nav>
-		<h1>Linkster</h1>
-		<br><br>
-		<ul>
-			<li><a href="">All</a><span class="selection" style="float: right;">1234</span></li>
-			<li><a href="">Broken</a><span style="float: right;">12</span></li>
-		</ul>
-	</nav>
-	<header>
-		<input id="linkSearch" type="text" placeholder="Search">
-		</input>
-	</header>
-	<main>
-  	</main>
-</body>
+	<body>
+		<nav>
+			<h1>Linkster</h1>
+			<br><br>
+			<ul>
+				<li><a href="">All</a><span class="selection" style="float: right;">1234</span></li>
+				<li><a href="">News</a><span style="float: right;">12</span></li>
+				<li><a href="">Blogpost</a><span style="float: right;">34</span></li>
+				<li><a href="">Images</a><span style="float: right;">140</span></li>
+				<li><a href="">Video</a><span style="float: right;">4</span></li>
+				<li><a href="">Gifs</a><span style="float: right;">71</span></li>
+				<li><a href="">Documents</a><span style="float: right;">45</span></li>
+			</ul>
+		</nav>
+		<header>
+			<label for="sorting">Sorting:</label>
+			<select id="sorting">
+			  <option value="latest">Latest</option>
+			  <option value="earliest">Earliest</option>
+			</select>
+			<input id="linkSearch" type="text" placeholder="Search">
+			</input>
+		</header>
+		<main>
+	  	</main>
+	</body>
 </html>
 <script src="js/bookmarks.js"></script>
 <script src="js/main.js"></script>
