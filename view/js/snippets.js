@@ -18,6 +18,10 @@ snippets.home.menu.bookmark = {
   	var urlString = item.url;
   	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
   	urlString = urlString[0].substring(2);
-    return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2><strong>"+item.title+"</h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"</div></a>";
+  	urlType = "Website";
+  	if (item.url.substring(item.url.length-4) == ".pdf") {
+  		urlType = "PDF";
+  	}
+    return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2><strong>"+item.title+"</h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"<div class=\"urlType\">"+urlType+"</div></div></a>";
   }
 }
