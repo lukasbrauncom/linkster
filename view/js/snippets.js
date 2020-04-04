@@ -18,6 +18,6 @@ snippets.home.menu.bookmark = {
   	var urlString = item.url;
   	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
   	urlString = urlString[0].substring(2);
-    return "<div class=\"tile\"><a href=\""+item.url+"\">"+urlString+"</a><br><h2><strong>"+item.title+"</h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"</div>";
+    return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2><strong>"+item.title+"</h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"</div></a>";
   }
 }
