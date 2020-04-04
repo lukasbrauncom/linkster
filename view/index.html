@@ -1,19 +1,35 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Linkster</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+	<meta charset="utf-8">
+	<title>Linkster</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="./css/normalize.min.css">
+	<link rel="stylesheet" href="./css/main.min.css">
 </head>
 
 <body>
   <h1>Linkster</h1>
-  <script src="js/bookmarks.js"></script>
-  <script src="js/main.js"></script>
+	<nav>
+		<h1>Linkster</h1>
+		<br><br>
+		<ul>
+			<li><a href="">All</a><span class="selection" style="float: right;">1234</span></li>
+			<li><a href="">Broken</a><span style="float: right;">12</span></li>
+		</ul>
+	</nav>
+	<header>
+		<input id="linkSearch" type="text" placeholder="Search">
+		</input>
+	</header>
+    <script src="js/snippets.js"></script>
+    <script src="js/bookmarks.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
