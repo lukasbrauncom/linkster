@@ -2,6 +2,32 @@
 * Handly bookmark functionality
 */
 
+function Tree(data) {
+  var that = this;
+  this.data = data;
+  
+  this.iterate = function(item, snippet, depth) {
+    if(item.type === "folder") {
+      snippet.root.innerHTML += snippet.folder.render(item, depth);
+    } else {
+      snippet.root.innerHTML += snippet.bookmark.render(item, depth);
+    }
+    
+    if(item.children) {
+      item.children.forEach(function(child) {
+        that.iterate(child, snippet, depth);
+      });
+    }
+    
+    depth++;
+  }
+  
+  this.render = function(snippet) {
+    this.iterate(this.data, snippet, 0)
+  }
+}
+
+
 function Bookmarks() {
   /*
   this.listBookmarks = function(bookmarks) {
@@ -29,6 +55,7 @@ function Bookmarks() {
     depth++;
   }
   
+  /*
   browser.bookmarks.getTree().then((bookmarksTree) => {
     console.log(bookmarksTree);
     this.iterateBookmarksTree(bookmarksTree[0], 0);
@@ -36,6 +63,16 @@ function Bookmarks() {
   .catch((error) => {
     console.log("Error:", error);
   });
+  */
+  
+  this.getTree = function() {
+    return browser.bookmarks.getTree().then((bookmarksTree) => {
+      return new Tree(bookmarksTree[0]);
+    }).catch((error) => {
+      console.log("Error:", error);
+    });
+  }
+  
   
   /*
   browser.bookmarks.getRecent(1).then((bookmarks) => {
