@@ -6,6 +6,14 @@ body, h1, h2, h3, h4
     color: #333;
 }
 
+h1 {
+	font-size: 24px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 input {
 	color: #777;
 	font-size: 18px;
@@ -45,4 +53,27 @@ header #linkSearch {
 	float: right;
 	border:none;
 	border-bottom:1px solid #333;
+}
+
+li {
+	line-height: 30px;
+}
+
+li .selection {
+	margin-right:0px;
+}
+
+li span {
+	margin-right:8px;
+}
+
+.selection {
+	color: #fff;
+	font-weight: 400;
+	background-color: #777;
+	height: 20px;
+	line-height: 20px;
+	margin: 2px auto 0px;
+	padding: 2px 8px;
+	border-radius: 14px;
 }
