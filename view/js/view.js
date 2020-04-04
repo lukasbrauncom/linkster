@@ -7,15 +7,34 @@ function Menu(bookmarkTree) {
 }
 
 function Main(data) {
-  console.log(data);
+  bookmarkTree.render(snippets.home.menu);
 }
 
+
 function View() {
+  var that = this;
+
+  this.render = function(item, snippet, depth) {
+    if(item.type === "folder") {
+      snippet.root.innerHTML += snippet.folder.render(item, depth);
+    } else {
+      snippet.root.innerHTML += snippet.bookmark.render(item, depth);
+    }
+    
+    if(item.children) {
+      item.children.forEach(function(child) {
+        that.render(child, snippet, depth);
+      });
+    }
+    
+    depth++;
+  };
+
   this.update = function(state, data) {
     switch(state) {
       default:
-        var menu = Menu(data);
-        var main = Main(data);
+        that.render(data, snippets.home.menu, 0);
+        //data.render(snippets.home.menu);
     }
-  }
+  };
 }
