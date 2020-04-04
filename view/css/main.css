@@ -1,0 +1,48 @@
+body, h1, h2, h3, h4
+{
+	font-family: 'Helvetica Neue', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    color: #333;
+}
+
+input {
+	color: #777;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+input:focus {
+	color: #333;
+}
+
+header {
+    position: fixed;
+    left: 0;
+	top: 0;
+	right: 0;
+    height: 26px;
+    z-index: 10;
+    background-color: #fff;
+    border-bottom: solid 1px #333;
+    margin-left: 224px; /* width of nav and padding */
+    padding:12px;
+}
+
+nav {
+	position: fixed;
+	z-index: 20;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width:200px;
+	background-color: #fff;
+	border-right: solid 1px #333;
+	padding:12px;
+}
+
+header #linkSearch {
+	float: right;
+	border:none;
+	border-bottom:1px solid #333;
+}
