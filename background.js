@@ -3,7 +3,12 @@
 */
 console.log("Call background.js");
 
+
+let openTab = false;
+
+
 function onCreated(tab) {
+  openTab = tab;
   console.log("Created main view in tab ${tab.id}");
 }
 
@@ -12,9 +17,14 @@ function onError(error) {
 }
 
 browser.browserAction.onClicked.addListener(function() {
-  var creating = browser.tabs.create({
-    active: true,
-    url: "view/index.html"
-  });
-  creating.then(onCreated, onError);
+  console.log(openTab);
+  if(!openTab) {
+    var creating = browser.tabs.create({
+      active: true,
+      url: "view/index.html"
+    });
+    creating.then(onCreated, onError);
+  } else {
+    browser.tabs.update(openTab.id, {active: true});
+  }
 });
