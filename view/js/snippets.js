@@ -6,15 +6,18 @@ var snippets = {};
 
 snippets.home = {};
 snippets.home.menu = {
-  root: document.body
+  root: document.getElementById("main")
 };
 snippets.home.menu.folder = {
   render: function(item, depth) {
-    return "<h"+(depth+2)+">"+item.title+"</"+(depth+2)+">";
+    return "<div><h"+(depth+2)+">"+item.title+"</"+(depth+2)+"></div>";
   }
 }
 snippets.home.menu.bookmark = {
   render: function(item, depth) {
-    return "<div style=\"background-color: red;\"><strong>"+item.title+"</h2><br/><a href=\""+item.url+"\">Link</a><br/>Added: "+new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><br/>";
+  	var urlString = item.url;
+  	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
+  	urlString = urlString[0].substring(2);
+    return "<div class=\"tile\"><a href=\""+item.url+"\">"+urlString+"</a><br><h2><strong>"+item.title+"</h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"</div>";
   }
 }
