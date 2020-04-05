@@ -18,21 +18,40 @@ snippets.home.main.bookmark = {
   	var urlString = item.url;
   	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
   	urlString = urlString[0].substring(2);
+  	urlString = urlString.replace("www.", "");
 
   	var urlType = "Website";
   	if (item.url.substring(item.url.length-4) == ".pdf") {
   		urlType = "PDF";
   	}
 
-  	var status = "";
-  	if (Math.floor((Math.random() * 2) + 1) == 1) {
-		status = "inactive";
+  	var category = "";
+  	var randCategory = Math.floor((Math.random() * 7) + 1);
+  	if (randCategory == 1) {
+		category = "categoryColorImages";
+  	}
+  	else if (randCategory == 2) {
+		category = "categoryColorVideos";
+  	}
+  	else if (randCategory == 3) {
+		category = "categoryColorDocuments";
+  	}
+  	else {
+		category = "categoryColorDefault";
   	}
 
-    return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile "+status+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"<div class=\"urlType\">"+urlType+"</div></div></a>";
+	// if (item.info.category == "article") {
+	// 	category = "categoryColorNews";
+ //  	}
+
+  	if (item.status == "404") {
+  		category = "inactive";
+  	}
+
+    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/><div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
   }
 };
 
 snippets.home.pagination = {
-  root: document.getElementById("main")
+  root: document.getElementById("footer")
 };

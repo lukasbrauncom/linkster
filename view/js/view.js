@@ -49,12 +49,12 @@ function View() {
     var pagination_list = "";
     for(let i = 1; i <= pagination.pages; i++) {
       if(i == pagination.current) {
-        pagination_list += " "+i+" ";
+        pagination_list += " <span id=\"selectedPage\">"+i+"</span>";
       } else {
-        pagination_list += "<a class=\"pagination\">"+i+"</a>";
+        pagination_list += " <a class=\"pagination\">"+i+"</a>";
       }
     }
-    snippet.root.innerHTML += "<div class=\"clear\">Pagination: "+pagination_list+"</div>";
+    snippet.root.innerHTML += "<div class=\"clear\">"+pagination_list+"</div>";
   };
   
   this.update_inputs = function() {

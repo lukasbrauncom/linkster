@@ -29,8 +29,10 @@ input:focus {
 }
 
 main {
+	position: absolute;
 	padding-left: 236px;
-	padding-top: 58px;
+	padding-top: 64px;
+	padding-bottom: 34px;
 }
 
 header {
@@ -43,20 +45,28 @@ header {
     background-color: #fff;
     border-bottom: solid 1px #333;
     margin-left: 224px; /* width of nav and padding */
-    padding:12px;
+    padding:12px 18px;
+}
+
+header #linkSearch {
+	float: right;
+	border:none;
+	text-align: right;
 }
 
 footer {
     position: fixed;
     left: 0;
-	bottom: 0;
-	right: 0;
-    height: 14px;
+    bottom: 0;
+    right: 0;
+    height: 23px;
     z-index: 10;
     background-color: #fff;
     border-top: solid 1px #333;
-    margin-left: 224px; /* width of nav and padding */
-    padding:6px;
+    margin-left: 224px;
+    padding: 4px 8px;
+    font-size: 18px; 
+    color:#777;
 }
 
 nav {
@@ -71,11 +81,6 @@ nav {
 	padding:12px;
 }
 
-header #linkSearch {
-	float: right;
-	border:none;
-	border-bottom:1px solid #333;
-}
 
 li {
 	line-height: 30px;
@@ -92,7 +97,6 @@ li span {
 .selection {
 	color: #fff;
 	font-weight: 400;
-	background-color: #777;
 	height: 20px;
 	line-height: 20px;
 	margin: 2px auto 0px;
@@ -100,35 +104,97 @@ li span {
 	border-radius: 14px;
 }
 
-.urlType {
-	float:right;
-	font-size: 14px;
-	color: #fff;
-	font-weight: 400;
-	background-color: #777;
-	height: 20px;
-	line-height: 19px;
-	margin: 2px auto 0px;
-	padding: 2px 8px;
-	border-radius: 14px;
+.categoryColorDefault {
+	background-color: #73DBC7;
+	border: 1px solid #73DBC7;
 }
+
+.categoryColorNews {
+	background-color: #FEC087;
+	border: 1px solid #FEC087;
+}
+
+.categoryColorImages {
+	background-color: #FFDB5D;
+	border: 1px solid #FFDB5D;
+}
+
+.categoryColorVideos {
+	background-color: #40b6fd;
+	border: 1px solid #40b6fd;
+}
+
+.categoryColorDocuments {
+	background-color: #40b6fd;
+	border: 1px solid #40b6fd;
+}
+
 
 .tile {
 	position: relative;
 	display: inline-block;
 	float: left;
 	width:200px;
-	height:120px;
+	height:160px;
 	margin-right: 8px;
 	margin-bottom: 8px;
 	padding:8px;
 	border-radius: 8px;
-	background-color: #40b6fd;
 }
 
 .tileTitle {
-	height: 48px;
+	height: 72px;
     overflow-y: hidden;
+    text-overflow: ellipsis;
+    padding-top:4px;
+}
+
+.domainLabel {
+    float: left;
+    width: 175px;
+    height: 16px;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tileFooter {
+	position:absolute;
+	bottom:2px;
+	font-size: 14px;
+	line-height: 14px;
+	width:200px;
+}
+
+.urlType {
+	float:right;
+	font-size: 11px;
+	color: #fff;
+	font-weight: 800;
+	background-color: #333;
+	line-height: 19px;
+	margin: 4px auto 4px;
+	padding: 1px 8px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.inactive .urlType {
+	display: none;
+}
+
+.dateAdded {
+	font-size: 14px;
+	text-align: left;
+	float:left;
+	height: 20px;
+	line-height: 19px;
+	margin: 4px auto 4px;
+	padding: 2px 2px;
 }
 
 .inactive {
@@ -137,5 +203,21 @@ li span {
 }
 
 .favicon {
+	float: left;
 	margin-right:4px;
 }
+
+.pagination, .pagination:hover {
+	color:#333;
+	font-size: 14px;
+}
+
+#selectedPage {
+	color:#333;
+	font-size: 16px;
+	color:#fff;
+	padding: 2px 4px;
+	background-color: #73DBC7;
+	border-radius: 2px;
+}
+

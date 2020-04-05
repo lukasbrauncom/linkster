@@ -7,7 +7,7 @@ let state = {
   pagination: {
     current: 1,
     pages: 1,
-    elements_per_page: 6
+    elements_per_page: 60
   }
 };
 
