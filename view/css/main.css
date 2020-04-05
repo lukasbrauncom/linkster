@@ -29,8 +29,10 @@ input:focus {
 }
 
 main {
+	position: absolute;
 	padding-left: 236px;
 	padding-top: 64px;
+	padding-bottom: 34px;
 }
 
 header {
@@ -63,7 +65,7 @@ footer {
     border-top: solid 1px #333;
     margin-left: 224px;
     padding: 4px 8px;
-    font-size: 16px;
+    font-size: 18px; 
     color:#777;
 }
 
@@ -207,5 +209,5 @@ li span {
 
 .pagination, .pagination:hover {
 	color:#333;
-	font-size: 18px;
+	font-size: 14px;
 }
