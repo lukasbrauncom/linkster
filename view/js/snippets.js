@@ -29,7 +29,7 @@ snippets.home.main.bookmark = {
 		status = "inactive";
   	}
 
-    return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile "+status+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"<div class=\"urlType\">"+urlType+"</div></div></a>";
+    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+status+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"<div class=\"urlType\">"+urlType+"</div></div></a>";
   }
 };
 

@@ -38,12 +38,18 @@ header {
     left: 0;
 	top: 0;
 	right: 0;
-    height: 28px;
+    height: 26px;
     z-index: 10;
     background-color: #fff;
     border-bottom: solid 1px #333;
     margin-left: 224px; /* width of nav and padding */
-    padding:12px;
+    padding:12px 18px;
+}
+
+header #linkSearch {
+	float: right;
+	border:none;
+	text-align: right;
 }
 
 footer {
@@ -73,11 +79,6 @@ nav {
 	padding:12px;
 }
 
-header #linkSearch {
-	float: right;
-	border:none;
-	border-bottom:1px solid #333;
-}
 
 li {
 	line-height: 30px;
