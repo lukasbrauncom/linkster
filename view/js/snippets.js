@@ -23,13 +23,7 @@ snippets.home.main.bookmark = {
   	var category = "categoryColorDefault";
   	var randCategory = Math.floor((Math.random() * 7) + 1);
   	if (item.category == 1) {
-		category = "categoryColorImages";
-  	}
-  	else if (item.category == 2) {
 		category = "categoryColorVideos";
-  	}
-  	else if (item.category == 3) {
-		category = "categoryColorDocuments";
   	}
 
 	// if (item.info.category == "article") {
@@ -44,9 +38,12 @@ snippets.home.main.bookmark = {
   	if (item.url.substring(item.url.length-4) == ".pdf") {
   		urlType = "PDF";
   		category = "categoryColorDocuments";
+  	} else if (item.url.substring(item.url.length-4) == ".pdf" || item.url.substring(item.url.length-4) == ".jpg" || item.url.substring(item.url.length-4) == ".png" || item.url.substring(item.url.length-5) == ".jpeg") {
+  		urlType = "IMG";
+  		category = "categoryColorImages";
   	}
 
-    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+item.info.category+"<div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
+    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+item.category+"<div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
   }
 };
 
