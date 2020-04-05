@@ -11,15 +11,23 @@ function Bookmarks() {
   };
   
   this.retrieve_meta = function(items) {
+    let results = [];
     items.forEach(function(item) {
-      fetch(item.url).then((response) => {
+      results.push(fetch(item.url).then((response) => {
         item.status = response.status;
         item.contentType = response.headers.get("Content-Type");
         item.category = (item.status == 200) ? "default" : "broken";
         item.info = {};
-      })
+        return item;
+      }).catch((e) => {
+        item.status = -1;
+        item.contentType = "";
+        item.category = "blocked";
+        item.info = {};
+        return Promise.resolve(item);
+      }));
     });
-    return items;
+    return Promise.all(results);
   };
   
   this.retrieve_items = function(result, item) {
@@ -37,6 +45,21 @@ function Bookmarks() {
   
   this.load_bookmarks = function() {
     return browser.bookmarks.getTree();
+  };
+  
+  this.get_latest = function(items, start, end) {
+    items.sort(function(a, b) {
+      return b.dateAdded - a.dateAdded;
+    });
+    return items.slice(start, end);
+    
+  };
+  
+  this.get_by_category = function(items, category) {
+    items.forEach((item) => {
+      console.log(item.category);
+    })
+    return items.filter(item => item.category == category);
   };
 }
 
