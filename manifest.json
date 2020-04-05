@@ -8,6 +8,8 @@
     },
     
     "permissions": [
+        "http://*/",
+        "https://*/",
         "bookmarks",
         "tabs",
         "browserAction"
@@ -25,5 +27,3 @@
         "default_title": "Linkster"
     }
 }
-    
-    
