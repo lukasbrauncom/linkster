@@ -28,6 +28,7 @@ function Tree(data) {
                 cleanHTML = parser.parseFromString(cleanHTML, 'text/html');
                 item.info.title = pageFilter.title.filter(cleanHTML);
                 item.info.category = pageFilter.category;
+                console.log(item.info);
               }).catch((error) => {
                 console.log(error);
               });
@@ -56,7 +57,7 @@ function Tree(data) {
     }
   };
   
-  this.items = this.retrieve_details(this.extract_items([], data));
+  this.items = this.extract_items([], data);
   
   
   
@@ -86,7 +87,7 @@ function Tree(data) {
     that.items.sort(function(a, b) {
       return b.dateAdded - a.dateAdded;
     });
-    return {index: 0, title: "Newest", children: that.items.slice(start, end)};
+    return {index: 0, title: "Newest", children: that.retrieve_details(that.items.slice(start, end))};
   };
 }
 
