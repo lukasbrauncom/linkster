@@ -1,3 +1,7 @@
+body {
+    background-color:#eee;
+}
+
 body, h1, h2, h3, h4
 {
 	font-family: 'Helvetica Neue', 'Arial';
@@ -107,6 +111,16 @@ li span {
 	padding:8px;
 	border-radius: 8px;
 	background-color: #40b6fd;
+}
+
+.tileTitle {
+	height: 48px;
+    overflow-y: hidden;
+}
+
+.inactive {
+	background-color: transparent;
+	border: 1px #333 dashed;
 }
 
 .favicon {
