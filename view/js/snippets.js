@@ -20,11 +20,6 @@ snippets.home.main.bookmark = {
   	urlString = urlString[0].substring(2);
   	urlString = urlString.replace("www.", "");
 
-  	var urlType = "Website";
-  	if (item.url.substring(item.url.length-4) == ".pdf") {
-  		urlType = "PDF";
-  	}
-
   	var category = "categoryColorDefault";
   	var randCategory = Math.floor((Math.random() * 7) + 1);
   	if (item.category == 1) {
@@ -43,6 +38,12 @@ snippets.home.main.bookmark = {
 
   	if (item.status == "404") {
   		category = "inactive";
+  	}
+
+  	var urlType = "Website";
+  	if (item.url.substring(item.url.length-4) == ".pdf") {
+  		urlType = "PDF";
+  		category = "categoryColorDocuments";
   	}
 
     return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+item.info.category+"<div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
