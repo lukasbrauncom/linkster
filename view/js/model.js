@@ -22,8 +22,6 @@ function Model(view, controller) {
 
   this.max_pages = 1;
 
-  //console.log(this.bookmarks.getTree());
-
   this.cally = function(number) {
     state.pagination.current = number;
     that.update(that.bookmarks_tree);

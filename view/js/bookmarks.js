@@ -8,11 +8,36 @@ function Tree(data) {
   
   this.retrieve_details = function(items) {
     items.forEach(function(item) {
-      fetch(item.url).then((response) => {
-        console.log(response);
+      fetch(item.url, {
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        }
+      }).then((response) => {
+        item.status = response.status;
+        item.contentType = response.headers.get("Content-Type");
+        item.info = {}
+        item.info.category = "default";
+        
+        pageFilters.forEach(function(pageFilter) {
+          if(pageFilter.filter.test(item.url) && item.contentType.includes(pageFilter.expecteContentType)) {
+            if(!pageFilter.dataSource) {
+              response.clone().text().then(function(externalHTML) {
+                var cleanHTML = DOMPurify.sanitize(externalHTML, {SAFE_FOR_JQUERY: true});
+                var parser = new DOMParser();
+                cleanHTML = parser.parseFromString(cleanHTML, 'text/html');
+                item.info.title = pageFilter.title.filter(cleanHTML);
+                item.info.category = pageFilter.category;
+              }).catch((error) => {
+                console.log(error);
+              });
+            }
+          }
+        });
       })
       .catch((error) => {
-        console.log("Error:", error);
+        item.status = -1;
+        //console.log("Error:", error);
       });
     });
     return items;
