@@ -6,26 +6,23 @@
 * Filter Template
 */
 
-function HTMLFilter(HTMLQuery, position, final=null) {
+function HTMLFilter(HTMLQuery, position, final) {
   var that = this;
   this.HTMLquery = HTMLQuery;
   this.position = position;
   this.final = final;
   
-  this.filter = function(cleanHTML) {
+  this.filter = function(item, cleanHTML) {
     let result = cleanHTML.querySelectorAll(that.HTMLquery);
-    result = result[that.position].innerHTML;
-    if(final) {
-      result = final(result);
-    }
+    result = result[that.position];
+    result = that.final(result);
     return result;
   };
+  return this.filter;
 };
 
 
-
 let pageFilters = []
-
 
 // zeit.de
 pageFilters.push({
@@ -34,8 +31,13 @@ pageFilters.push({
   expecteContentType: "text/html",
   dataSource: null,
   
-  title: new HTMLFilter("span.article-heading__title", 0, function(e) {return e.trim()}),
   category: "article",
+  
+  info: {
+    heading: new HTMLFilter("span.article-heading__title", 0, function(e) {return e.innerHTML.trim()}),
+    img: new HTMLFilter("img.article__media-item", 0, function(e) {return e.src})
+  }
+  
   /*
   videoInfo = {
     title: ["h1", ".title", 0],

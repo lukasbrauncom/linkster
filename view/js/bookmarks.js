@@ -16,8 +16,8 @@ function Tree(data) {
       }).then((response) => {
         item.status = response.status;
         item.contentType = response.headers.get("Content-Type");
+        item.category = "default";
         item.info = {}
-        item.info.category = "default";
         
         pageFilters.forEach(function(pageFilter) {
           if(pageFilter.filter.test(item.url) && item.contentType.includes(pageFilter.expecteContentType)) {
@@ -26,11 +26,12 @@ function Tree(data) {
                 var cleanHTML = DOMPurify.sanitize(externalHTML, {SAFE_FOR_JQUERY: true});
                 var parser = new DOMParser();
                 cleanHTML = parser.parseFromString(cleanHTML, 'text/html');
-                item.info.title = pageFilter.title.filter(cleanHTML);
-                item.info.category = pageFilter.category;
+                item.category = pageFilter.category;
+                
+                for(let [key, value] of Object.entries(pageFilter.info)) {
+                  item.info[key] = value(item, cleanHTML);
+                }
                 console.log(item.info);
-              }).catch((error) => {
-                console.log(error);
               });
             }
           }
