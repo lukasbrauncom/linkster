@@ -7,7 +7,7 @@ let state = {
   pagination: {
     current: 1,
     pages: 1,
-    elements_per_page: 60
+    elements_per_page: 6
   }
 };
 
@@ -45,7 +45,7 @@ function Model(view, controller) {
     end = state.pagination.elements_per_page*state.pagination.current;
     
     let data = {
-      items: items.slice(start, end),
+      items: that.bookmarks.get_latest(items, start, end), // that.bookmarks.get_by_category(items, "broken"),
       pagination: state.pagination,
       menu: {
         sorting: "latest",
