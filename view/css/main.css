@@ -103,25 +103,12 @@ li span {
 	border-radius: 14px;
 }
 
-.urlType {
-	float:right;
-	font-size: 14px;
-	color: #fff;
-	font-weight: 400;
-	background-color: #777;
-	height: 20px;
-	line-height: 19px;
-	margin: 2px auto 0px;
-	padding: 2px 8px;
-	border-radius: 14px;
-}
-
 .tile {
 	position: relative;
 	display: inline-block;
 	float: left;
 	width:200px;
-	height:120px;
+	height:160px;
 	margin-right: 8px;
 	margin-bottom: 8px;
 	padding:8px;
@@ -131,9 +118,53 @@ li span {
 }
 
 .tileTitle {
-	height: 48px;
+	height: 72px;
     overflow-y: hidden;
     text-overflow: ellipsis;
+    padding-top:4px;
+}
+
+.domainLabel {
+    float: left;
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 2px;
+}
+
+.tileFooter {
+	position:absolute;
+	bottom:2px;
+	font-size: 14px;
+	line-height: 14px;
+	width:200px;
+}
+
+.urlType {
+	float:right;
+	font-size: 11px;
+	color: #fff;
+	font-weight: 800;
+	background-color: #333;
+	line-height: 19px;
+	margin: 4px auto 4px;
+	padding: 1px 8px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.inactive .urlType {
+	display: none;
+}
+
+.dateAdded {
+	font-size: 14px;
+	text-align: left;
+	float:left;
+	height: 20px;
+	line-height: 19px;
+	margin: 4px auto 4px;
+	padding: 2px 2px;
 }
 
 .inactive {
@@ -142,6 +173,7 @@ li span {
 }
 
 .favicon {
+	float: left;
 	margin-right:4px;
 }
 
