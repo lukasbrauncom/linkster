@@ -10,7 +10,6 @@ function Controller() {
     var elemets = elements.trim();
     var key = elements[0];
     elements = elements.slice(1, elements.length);
-    console.log(key, elements);
     if(key === ".") {
       elements = document.getElementsByClassName(elements);
       for(let i =0; i < elements.length; i++) {
