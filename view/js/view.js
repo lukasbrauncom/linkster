@@ -14,8 +14,9 @@ function Main(data) {
 function View() {
   var that = this;
   
-  this.clean = function() {
-    document.getElementById("main").innerHTML = "";
+  this.clean = function(snippet) {
+    snippet.main.root.innerHTML = "";
+    snippet.pagination.root.innerHTML = "";
   };
 
   this.render_main = function(item, snippet, depth) {
@@ -34,7 +35,7 @@ function View() {
     depth++;
   };
   
-  this.render_pagination = function(pagination) {
+  this.render_pagination = function(pagination, snippet) {
     var pagination_list = "";
     for(let i = 1; i <= pagination.pages; i++) {
       if(i == pagination.current) {
@@ -42,10 +43,8 @@ function View() {
       } else {
         pagination_list += "<a class=\"pagination\">"+i+"</a>";
       }
-      console.log(i, pagination.pages);
     }
-    console.log(pagination_list, pagination.pages, "add");
-    document.getElementById("main").innerHTML += "<div class=\"clear\">Pagination: "+pagination_list+"</div>";
+    snippet.root.innerHTML += "<div class=\"clear\">Pagination: "+pagination_list+"</div>";
   };
   
   this.update_inputs = function() {
@@ -55,9 +54,9 @@ function View() {
   this.update = function(state, data) {
     switch(state) {
       default:
-        that.clean();
-        that.render_main(data.tree, snippets.home.menu, 0);
-        that.render_pagination(data.pagination);
+        that.clean(snippets.home);
+        that.render_main(data.tree, snippets.home.main, 0);
+        that.render_pagination(data.pagination, snippets.home.pagination);
     }
   };
 }
