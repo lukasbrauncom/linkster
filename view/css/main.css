@@ -46,6 +46,19 @@ header {
     padding:12px;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+	bottom: 0;
+	right: 0;
+    height: 14px;
+    z-index: 10;
+    background-color: #fff;
+    border-top: solid 1px #333;
+    margin-left: 224px; /* width of nav and padding */
+    padding:6px;
+}
+
 nav {
 	position: fixed;
 	z-index: 20;
