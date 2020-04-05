@@ -18,6 +18,7 @@ snippets.home.main.bookmark = {
   	var urlString = item.url;
   	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
   	urlString = urlString[0].substring(2);
+  	urlString = urlString.replace("www.", "");
 
   	var urlType = "Website";
   	if (item.url.substring(item.url.length-4) == ".pdf") {
