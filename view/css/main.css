@@ -25,8 +25,8 @@ input:focus {
 }
 
 main {
-	padding-left: 208px; /* width of nav and padding */
-	padding-top: 38px;
+	padding-left: 236px;
+	padding-top: 58px;
 }
 
 header {
@@ -83,6 +83,19 @@ li span {
 	border-radius: 14px;
 }
 
+.urlType {
+	float:right;
+	font-size: 14px;
+	color: #fff;
+	font-weight: 400;
+	background-color: #777;
+	height: 20px;
+	line-height: 19px;
+	margin: 2px auto 0px;
+	padding: 2px 8px;
+	border-radius: 14px;
+}
+
 .tile {
 	position: relative;
 	display: inline-block;
@@ -94,4 +107,8 @@ li span {
 	padding:8px;
 	border-radius: 8px;
 	background-color: #40b6fd;
+}
+
+.favicon {
+	margin-right:4px;
 }

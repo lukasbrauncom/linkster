@@ -1,5 +1,5 @@
 /*
-* Handly bookmark functionality
+* Handle bookmark functionality
 */
 
 function Tree(data) {
@@ -46,9 +46,9 @@ function Tree(data) {
   
   this.getLatest = function(start, end) {
     that.items.sort(function(a, b) {
-      return a.dateAdded - b.dateAdded;
+      return b.dateAdded - a.dateAdded;
     });
-    return that.items[start, end];    
+    return {index: 0, title: "Newest", children: that.items.slice(start, end)};
   };
 }
 

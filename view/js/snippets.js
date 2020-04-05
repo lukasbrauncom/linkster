@@ -6,15 +6,22 @@ var snippets = {};
 
 snippets.home = {};
 snippets.home.menu = {
-  root: document.body
+  root: document.getElementById("main")
 };
 snippets.home.menu.folder = {
   render: function(item, depth) {
-    return "<h"+(depth+2)+">"+item.title+"</"+(depth+2)+">";
+    return "<div><h"+(depth+2)+">"+item.title+"</"+(depth+2)+"></div>";
   }
 }
 snippets.home.menu.bookmark = {
   render: function(item, depth) {
-    return "<div style=\"background-color: red;\"><strong>"+item.title+"</h2><br/><a href=\""+item.url+"\">Link</a><br/>Added: "+new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><br/>";
+  	var urlString = item.url;
+  	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
+  	urlString = urlString[0].substring(2);
+  	urlType = "Website";
+  	if (item.url.substring(item.url.length-4) == ".pdf") {
+  		urlType = "PDF";
+  	}
+    return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2><strong>"+item.title+"</h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"<div class=\"urlType\">"+urlType+"</div></div></a>";
   }
 }

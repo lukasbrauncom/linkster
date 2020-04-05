@@ -4,7 +4,8 @@
 
 function Linkster() {
     this.view = new View();
-    this.model = new Model(this.view, this.view);
+    this.controller = new Controller();
+    this.model = new Model(this.view, this.controller);
 }
 
 var linkster = new Linkster();
