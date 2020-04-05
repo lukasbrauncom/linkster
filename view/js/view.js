@@ -18,7 +18,8 @@ function View() {
     snippet.main.root.innerHTML = "";
     snippet.pagination.root.innerHTML = "";
   };
-
+  
+  /*
   this.render_main = function(item, snippet, depth) {
     if(item.type === "folder") {
       snippet.root.innerHTML += snippet.folder.render(item, depth);
@@ -33,6 +34,15 @@ function View() {
     }
     
     depth++;
+  };
+  */
+  
+  this.render_main = function(items, snippet) {
+    items.forEach(function(item) {
+      if(item.type === "bookmark") {
+        snippet.root.innerHTML += snippet.bookmark.render(item, 0);
+      }
+    });
   };
   
   this.render_pagination = function(pagination, snippet) {
@@ -55,7 +65,7 @@ function View() {
     switch(state) {
       default:
         that.clean(snippets.home);
-        that.render_main(data.tree, snippets.home.main, 0);
+        that.render_main(data.items, snippets.home.main);
         that.render_pagination(data.pagination, snippets.home.pagination);
     }
   };
