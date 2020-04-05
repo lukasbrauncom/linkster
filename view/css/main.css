@@ -211,3 +211,13 @@ li span {
 	color:#333;
 	font-size: 14px;
 }
+
+#selectedPage {
+	color:#333;
+	font-size: 16px;
+	color:#fff;
+	padding: 2px 4px;
+	background-color: #73DBC7;
+	border-radius: 2px;
+}
+

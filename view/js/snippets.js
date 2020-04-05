@@ -28,22 +28,24 @@ snippets.home.main.bookmark = {
   	var category = "";
   	var randCategory = Math.floor((Math.random() * 7) + 1);
   	if (randCategory == 1) {
-		category = "categoryColorNews";
-  	}
-  	else if (randCategory == 2) {
 		category = "categoryColorImages";
   	}
-  	else if (randCategory == 3) {
+  	else if (randCategory == 2) {
 		category = "categoryColorVideos";
   	}
-  	else if (randCategory == 4) {
+  	else if (randCategory == 3) {
 		category = "categoryColorDocuments";
   	}
-  	else if (randCategory == 5) {
+  	else {
 		category = "categoryColorDefault";
   	}
-  	else {
-		category = "inactive";
+
+	// if (item.info.category == "article") {
+	// 	category = "categoryColorNews";
+ //  	}
+
+  	if (item.status == "404") {
+  		category = "inactive";
   	}
 
     return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/><div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";

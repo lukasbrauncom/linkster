@@ -39,7 +39,7 @@ function View() {
     var pagination_list = "";
     for(let i = 1; i <= pagination.pages; i++) {
       if(i == pagination.current) {
-        pagination_list += " "+i+"";
+        pagination_list += " <span id=\"selectedPage\">"+i+"</span>";
       } else {
         pagination_list += " <a class=\"pagination\">"+i+"</a>";
       }
