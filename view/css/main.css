@@ -128,7 +128,9 @@ li span {
 
 .tileTitle {
 	height: 48px;
+	white-space: nowrap;
     overflow-y: hidden;
+    text-overflow: ellipsis;
 }
 
 .inactive {
