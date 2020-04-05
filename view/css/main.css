@@ -30,7 +30,7 @@ input:focus {
 
 main {
 	padding-left: 236px;
-	padding-top: 58px;
+	padding-top: 64px;
 }
 
 header {
@@ -38,7 +38,7 @@ header {
     left: 0;
 	top: 0;
 	right: 0;
-    height: 26px;
+    height: 28px;
     z-index: 10;
     background-color: #fff;
     border-bottom: solid 1px #333;
@@ -49,14 +49,15 @@ header {
 footer {
     position: fixed;
     left: 0;
-	bottom: 0;
-	right: 0;
-    height: 14px;
+    bottom: 0;
+    right: 0;
+    height: 22px;
     z-index: 10;
     background-color: #fff;
     border-top: solid 1px #333;
-    margin-left: 224px; /* width of nav and padding */
-    padding:6px;
+    margin-left: 224px;
+    padding: 3px 6px;
+    font-size: 16px;
 }
 
 nav {
@@ -124,11 +125,11 @@ li span {
 	padding:8px;
 	border-radius: 8px;
 	background-color: #40b6fd;
+	border: 1px solid #40b6fd;
 }
 
 .tileTitle {
 	height: 48px;
-	white-space: nowrap;
     overflow-y: hidden;
     text-overflow: ellipsis;
 }

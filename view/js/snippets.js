@@ -34,5 +34,5 @@ snippets.home.main.bookmark = {
 };
 
 snippets.home.pagination = {
-  root: document.getElementById("main")
+  root: document.getElementById("footer")
 };
