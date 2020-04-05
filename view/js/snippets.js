@@ -25,12 +25,28 @@ snippets.home.main.bookmark = {
   		urlType = "PDF";
   	}
 
-  	var status = "";
-  	if (Math.floor((Math.random() * 2) + 1) == 1) {
-		status = "inactive";
+  	var category = "";
+  	var randCategory = Math.floor((Math.random() * 7) + 1);
+  	if (randCategory == 1) {
+		category = "categoryColorNews";
+  	}
+  	else if (randCategory == 2) {
+		category = "categoryColorImages";
+  	}
+  	else if (randCategory == 3) {
+		category = "categoryColorVideos";
+  	}
+  	else if (randCategory == 4) {
+		category = "categoryColorDocuments";
+  	}
+  	else if (randCategory == 5) {
+		category = "categoryColorDefault";
+  	}
+  	else {
+		category = "inactive";
   	}
 
-    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+status+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/><div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
+    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/><div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
   }
 };
 
