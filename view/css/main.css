@@ -51,13 +51,14 @@ footer {
     left: 0;
     bottom: 0;
     right: 0;
-    height: 22px;
+    height: 23px;
     z-index: 10;
     background-color: #fff;
     border-top: solid 1px #333;
     margin-left: 224px;
-    padding: 3px 6px;
+    padding: 4px 8px;
     font-size: 16px;
+    color:#777;
 }
 
 nav {
@@ -141,4 +142,9 @@ li span {
 
 .favicon {
 	margin-right:4px;
+}
+
+.pagination, .pagination:hover {
+	color:#333;
+	font-size: 18px;
 }
