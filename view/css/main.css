@@ -145,7 +145,7 @@ li span {
 .tileTitle {
 	height: 70px;
 	white-space: inherit;
-    overflow-y: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     padding-top:4px;
 }
