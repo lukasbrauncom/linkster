@@ -5,15 +5,15 @@
 var snippets = {};
 
 snippets.home = {};
-snippets.home.menu = {
+snippets.home.main = {
   root: document.getElementById("main")
 };
-snippets.home.menu.folder = {
+snippets.home.main.folder = {
   render: function(item, depth) {
     return "<div><h"+(depth+2)+">"+item.title+"</"+(depth+2)+"></div>";
   }
-}
-snippets.home.menu.bookmark = {
+};
+snippets.home.main.bookmark = {
   render: function(item, depth) {
   	var urlString = item.url;
   	urlString = urlString.match(/\/\/[A-Za-z0-9.]+/g);
@@ -31,4 +31,8 @@ snippets.home.menu.bookmark = {
 
     return "<a href=\""+item.url+"\" title=\""+item.url+"\"><div class=\"tile "+status+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/>"+urlString+"<br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+new Date(item.dateAdded).toLocaleDateString("en-US")+"<div class=\"urlType\">"+urlType+"</div></div></a>";
   }
-}
+};
+
+snippets.home.pagination = {
+  root: document.getElementById("main")
+};

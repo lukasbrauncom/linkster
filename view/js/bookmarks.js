@@ -6,6 +6,18 @@ function Tree(data) {
   var that = this;
   this.data = data;
   
+  this.retrieve_details = function(items) {
+    items.forEach(function(item) {
+      fetch(item.url).then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
+    });
+    return items;
+  };
+  
   this.extract_items = function(result, item) {
     if(item.type === "bookmark") {
       return [item];
@@ -17,10 +29,11 @@ function Tree(data) {
       });
       return result;
     }
-    
   };
   
-  this.items = this.extract_items([], data);
+  this.items = this.retrieve_details(this.extract_items([], data));
+  
+  
   
   /*
   this.iterate = function(item, snippet, depth) {
