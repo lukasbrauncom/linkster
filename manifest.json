@@ -12,7 +12,8 @@
         "https://*/",
         "bookmarks",
         "tabs",
-        "browserAction"
+        "browserAction",
+        "storage"
     ],
     
     "background": {
