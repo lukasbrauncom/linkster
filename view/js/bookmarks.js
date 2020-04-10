@@ -9,12 +9,17 @@ function Bookmarks() {
   this.test = function(tree) {
     return tree;
   };
-  
+
   this.retrieve_meta = function(items) {
     let results = [];
     items.forEach(function(item) {
       results.push(fetch(item.url).then((response) => {
-        item.status = response.status;
+        //item.status = response.status;
+
+        if (item.status != "") {
+          setCacheForItem(item, "status", response.status);
+        }
+
         item.contentType = response.headers.get("Content-Type");
         item.category = (item.status == 200) ? "default" : "broken";
         item.info = {};
@@ -22,7 +27,7 @@ function Bookmarks() {
       }).catch((e) => {
         item.status = -1;
         item.contentType = "";
-        item.category = "blocked";
+        item.category = "error";
         item.info = {};
         return Promise.resolve(item);
       }));

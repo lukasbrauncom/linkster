@@ -26,11 +26,14 @@ snippets.home.main.bookmark = {
 		category = "categoryColorVideos";
   	}
 
-	// if (item.info.category == "article") {
-	// 	category = "categoryColorNews";
- //  	}
+	//	if (item.info.category == "article") {
+	//		category = "categoryColorNews";
+ 	//	}
 
-  	if (item.status == "404") {
+ 	getCacheForItem(item, "status");
+
+  	if (item.status == "404")
+  	{
   		category = "inactive";
   	}
 
@@ -43,7 +46,7 @@ snippets.home.main.bookmark = {
   		category = "categoryColorImages";
   	}
 
-    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+item.category+"<div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
+    return "<a href=\""+item.url+"\" target=\"_new\" title=\""+item.url+"\"><div class=\"tile "+category+"\"><img class=\"favicon\" width=\"16px\" height=\"16px\" src=\"https://"+urlString+"\/favicon.ico\"/><div class=\"domainLabel\">"+urlString+"</div><br><h2 class=\"tileTitle\"><strong>"+item.title+"</strong></h2><br/>"+item.category+item.status+"<div class=\"tileFooter\"><div class=\"dateAdded\">"+ new Date(item.dateAdded).toLocaleDateString("en-US")+"</div><div class=\"urlType\">"+urlType+"</div></div></div></a>";
   }
 };
 
