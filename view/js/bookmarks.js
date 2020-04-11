@@ -13,24 +13,35 @@ function Bookmarks() {
   this.retrieve_meta = function(items) {
     let results = [];
     items.forEach(function(item) {
-      results.push(fetch(item.url).then((response) => {
-        //item.status = response.status;
 
-        if (item.status != "") {
-          setCacheForItem(item, "status", response.status);
-        }
+      // Check cache before re-fetching data
+      this.caching = new Caching();
+      this.caching.getCacheForItem(item).then((item) => {
+        if (item != "") {
+            results.push(fetch(item.url).then((response) => {
+              
+              item.status = response.status;
+              item.contentType = response.headers.get("Content-Type");
+              item.category = (item.status == 200) ? "default" : "broken";
+              item.info = {};
 
-        item.contentType = response.headers.get("Content-Type");
-        item.category = (item.status == 200) ? "default" : "broken";
-        item.info = {};
-        return item;
-      }).catch((e) => {
-        item.status = -1;
-        item.contentType = "";
-        item.category = "error";
-        item.info = {};
-        return Promise.resolve(item);
-      }));
+              console.log("response");
+              console.log(response);
+
+              this.caching = new Caching();
+              this.caching.setCacheForItem(response.url, response);
+
+              return item;
+            }).catch((e) => {
+              item.status = -1;
+              item.contentType = "";
+              item.category = "error";
+              item.info = {};
+              return Promise.resolve(item);
+            }));
+          }
+        });
+        //return item;
     });
     return Promise.all(results);
   };

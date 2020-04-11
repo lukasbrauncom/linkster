@@ -30,7 +30,7 @@ snippets.home.main.bookmark = {
 	//		category = "categoryColorNews";
  	//	}
 
- 	getCacheForItem(item, "status");
+ 	//getCacheForItem(item, "status");
 
   	if (item.status == "404")
   	{
